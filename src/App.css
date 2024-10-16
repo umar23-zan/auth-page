@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.alert {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.alert.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.alert.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
