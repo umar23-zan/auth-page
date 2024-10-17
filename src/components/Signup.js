@@ -40,16 +40,22 @@ const Signup = () => {
 
     return (
         <div>
-            <h1>Sign Up</h1>
-            {alert && <div className={`alert ${alert.type}`}>{alert.message}</div>} {/* Show alert */}
-            <form onSubmit={onSubmit}>
-                <input type="text" name="name" value={name} onChange={onChange} placeholder="Name" required />
-                <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
-                <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
-                <input type="password" name="confirmPassword" value={confirmPassword} onChange={onChange} placeholder="Confirm Password" required />
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account? <Link to="/">Login</Link></p>
+            <div className='header-section'>
+                <h1>ShariaStock</h1>
+            </div>
+            <div className='form-container'>
+                <h1>Sign Up</h1>
+                {alert && <div className={`alert ${alert.type}`}>{alert.message}</div>} {/* Show alert */}
+                <form onSubmit={onSubmit}>
+                    <input type="text" name="name" value={name} onChange={onChange} placeholder="Name" required />
+                    <input type="email" name="email" value={email} onChange={onChange} placeholder="Email" required />
+                    <input type="password" name="password" value={password} onChange={onChange} placeholder="Password" required />
+                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={onChange} placeholder="Confirm Password" required />
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <Link to="/">Login</Link></p>
+            </div>
+            
         </div>
     );
 };

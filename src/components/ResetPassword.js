@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { resetPassword } from '../api/auth'; // Adjust the path as needed
+import { resetPassword } from '../api/auth'; 
+import '../App.css'
 
 const ResetPassword = () => {
     const { token } = useParams();
@@ -42,26 +43,32 @@ const ResetPassword = () => {
 
     return (
         <div>
-            <h2>Reset Password</h2>
-            <form onSubmit={onSubmit}>
-                <input
-                    type="password"
-                    placeholder="New Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">Reset Password</button>
-            </form>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            {success && <p style={{ color: 'green' }}>{success}</p>}
+            <div className='header-section'>
+                <h1>ShariaStock</h1>
+            </div>
+            <div className='form-container'>
+                <h2>Reset Password</h2>
+                <form onSubmit={onSubmit}>
+                    <input
+                        type="password"
+                        placeholder="New Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Reset Password</button>
+                </form>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                {success && <p style={{ color: 'green' }}>{success}</p>}
+            </div>
+            
         </div>
     );
 };

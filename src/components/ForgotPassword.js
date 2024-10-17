@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { forgotPassword } from '../api/auth'; // Assume forgotPassword function makes an API call
+import { forgotPassword } from '../api/auth'; 
+import '../App.css'
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -10,7 +11,7 @@ const ForgotPassword = () => {
         try {
             const res = await forgotPassword({ email });
             setAlert({ type: 'success', message: res.data.msg });
-            setEmail(''); // Clear the email input field
+            setEmail(''); 
         } catch (error) {
             setAlert({ type: 'error', message: error.response.data.msg });
         }
@@ -18,19 +19,26 @@ const ForgotPassword = () => {
 
     return (
         <div>
-            <h1>Forgot Password</h1>
-            {alert && <div className={`alert ${alert.type}`}>{alert.message}</div>}
-            <form onSubmit={onSubmit}>
-                <input
-                    type="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    required
-                />
-                <button type="submit">Send Reset Link</button>
-            </form>
+            <div className='header-section'>
+                <h1>ShariaStock</h1>
+            </div>
+            <div className='form-container'>
+                <h1>Forgot Password</h1>
+                {alert && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+                <form onSubmit={onSubmit}>
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        required
+                    />
+                    <button type="submit">Send Reset Link</button>
+                </form>
+            </div>
+            
         </div>
     );
 };
